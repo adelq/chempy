@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>chempy.kinetics.integrated &mdash; chempy 0.1.0.git documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1.0.git',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="chempy 0.1.0.git documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for chempy.kinetics.integrated</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+
+
+<div class="viewcode-block" id="dimerization_irrev"><a class="viewcode-back" href="../../../chempy.kinetics.html#chempy.kinetics.integrated.dimerization_irrev">[docs]</a><span class="k">def</span> <span class="nf">dimerization_irrev</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">kf</span><span class="p">,</span> <span class="n">P0</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">initial_C</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+</div>
+<div class="viewcode-block" id="pseudo_irrev"><a class="viewcode-back" href="../../../chempy.kinetics.html#chempy.kinetics.integrated.pseudo_irrev">[docs]</a><span class="k">def</span> <span class="nf">pseudo_irrev</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">kf</span><span class="p">,</span> <span class="n">P0</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">excess_C</span><span class="p">,</span> <span class="n">limiting_C</span><span class="p">,</span> <span class="n">eps_l</span><span class="p">,</span> <span class="n">exp</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">exp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">exp</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+    <span class="k">return</span> <span class="n">P0</span><span class="o">*</span><span class="n">eps_l</span><span class="o">*</span><span class="n">limiting_C</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">excess_C</span><span class="o">*</span><span class="n">kf</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t0</span><span class="p">)))</span></div>
+<span class="n">pseudo_irrev</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Pseudo first order irreversible&#39;</span>
+
+
+<div class="viewcode-block" id="pseudo_rev"><a class="viewcode-back" href="../../../chempy.kinetics.html#chempy.kinetics.integrated.pseudo_rev">[docs]</a><span class="k">def</span> <span class="nf">pseudo_rev</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">kf</span><span class="p">,</span> <span class="n">P0</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">excess_C</span><span class="p">,</span> <span class="n">limiting_C</span><span class="p">,</span> <span class="n">eps_l</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">exp</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">exp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">exp</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+    <span class="n">kb</span> <span class="o">=</span> <span class="n">kf</span><span class="o">/</span><span class="n">beta</span>
+    <span class="k">return</span> <span class="n">P0</span><span class="o">*</span><span class="n">eps_l</span><span class="o">*</span><span class="n">limiting_C</span><span class="o">*</span><span class="n">excess_C</span><span class="o">*</span><span class="n">kf</span><span class="o">/</span><span class="p">(</span><span class="n">excess_C</span><span class="o">*</span><span class="n">kf</span> <span class="o">+</span> <span class="n">kb</span><span class="p">)</span><span class="o">*</span><span class="p">(</span>
+        <span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">excess_C</span><span class="o">*</span><span class="n">kf</span><span class="o">+</span><span class="n">kb</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t0</span><span class="p">)))</span></div>
+<span class="n">pseudo_rev</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Pseudo first order reversible&#39;</span>
+
+
+<div class="viewcode-block" id="binary_irrev"><a class="viewcode-back" href="../../../chempy.kinetics.html#chempy.kinetics.integrated.binary_irrev">[docs]</a><span class="k">def</span> <span class="nf">binary_irrev</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">kf</span><span class="p">,</span> <span class="n">P0</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">excess_C</span><span class="p">,</span> <span class="n">limiting_C</span><span class="p">,</span> <span class="n">eps_l</span><span class="p">,</span> <span class="n">exp</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">exp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">exp</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+    <span class="k">return</span> <span class="n">P0</span><span class="o">*</span><span class="n">eps_l</span><span class="o">*</span><span class="n">excess_C</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">kf</span><span class="o">*</span><span class="p">(</span><span class="n">excess_C</span><span class="o">-</span><span class="n">limiting_C</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t0</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span>
+        <span class="n">excess_C</span><span class="o">/</span><span class="n">limiting_C</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">kf</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">excess_C</span><span class="o">-</span><span class="n">limiting_C</span><span class="p">)))</span></div>
+<span class="n">binary_irrev</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Second order irreversible&#39;</span>
+
+
+<div class="viewcode-block" id="binary_rev"><a class="viewcode-back" href="../../../chempy.kinetics.html#chempy.kinetics.integrated.binary_rev">[docs]</a><span class="k">def</span> <span class="nf">binary_rev</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">kf</span><span class="p">,</span> <span class="n">P0</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">excess_C</span><span class="p">,</span> <span class="n">limiting_C</span><span class="p">,</span> <span class="n">eps_l</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span>
+               <span class="n">exp</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">exp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">exp</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+    <span class="n">kb</span> <span class="o">=</span> <span class="n">kf</span><span class="o">/</span><span class="n">beta</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">kf</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="n">excess_C</span><span class="o">*</span><span class="n">kf</span> <span class="o">-</span> <span class="n">limiting_C</span><span class="o">*</span><span class="n">kf</span> <span class="o">-</span> <span class="n">kb</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">excess_C</span><span class="o">*</span><span class="n">limiting_C</span><span class="o">*</span><span class="n">kf</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">one</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">P</span> <span class="o">-</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">P0</span><span class="o">*</span><span class="n">eps_l</span><span class="o">*</span><span class="n">Q</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="n">P</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t0</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">Q</span><span class="o">/</span><span class="n">R</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="n">P</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t0</span><span class="p">))))</span></div>
+<span class="n">binary_rev</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Second order reversible&#39;</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bjoern I. Dahlgren <bjodah@gmail.com>.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

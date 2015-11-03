@@ -1,0 +1,962 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>chempy package &mdash; chempy 0.1.0.git documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0.git',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="chempy 0.1.0.git documentation" href="index.html" />
+    <link rel="next" title="chempy.kinetics package" href="chempy.kinetics.html" />
+    <link rel="prev" title="Welcome to chempy’s documentation!" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-chempy">
+<span id="chempy-package"></span><h1>chempy package<a class="headerlink" href="#module-chempy" title="Permalink to this headline">¶</a></h1>
+<p>ChemPy is a Python package which aims to be useful in solving chemistry
+related problems.</p>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chempy.kinetics.html">chempy.kinetics package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chempy.kinetics.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chempy.kinetics.tests.html">chempy.kinetics.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chempy.kinetics.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chempy.kinetics.tests.html#module-chempy.kinetics.tests.test_integrated">chempy.kinetics.tests.test_integrated module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chempy.kinetics.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chempy.kinetics.html#module-chempy.kinetics.integrated">chempy.kinetics.integrated module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chempy.kinetics.html#module-chempy.kinetics.ode">chempy.kinetics.ode module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chempy.util.html">chempy.util package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chempy.util.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chempy.util.tests.html">chempy.util.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chempy.util.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chempy.util.tests.html#module-chempy.util.tests.test_arithmeticdict">chempy.util.tests.test_arithmeticdict module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chempy.util.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chempy.util.html#module-chempy.util.arithmeticdict">chempy.util.arithmeticdict module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chempy.util.html#module-chempy.util.plotting">chempy.util.plotting module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-chempy.arrhenius">
+<span id="chempy-arrhenius-module"></span><h2>chempy.arrhenius module<a class="headerlink" href="#module-chempy.arrhenius" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="chempy.arrhenius.arrhenius_equation">
+<code class="descclassname">chempy.arrhenius.</code><code class="descname">arrhenius_equation</code><span class="sig-paren">(</span><em>A</em>, <em>Ea</em>, <em>T</em>, <em>constants=None</em>, <em>units=None</em>, <em>exp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/arrhenius.html#arrhenius_equation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.arrhenius.arrhenius_equation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the rate coefficient according to the Arrhenius equation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>A: float with unit</strong></p>
+<blockquote>
+<div><p>frequency factor</p>
+</div></blockquote>
+<p><strong>Ea: float with unit</strong></p>
+<blockquote>
+<div><p>activation energy</p>
+</div></blockquote>
+<p><strong>T: float with unit</strong></p>
+<blockquote>
+<div><p>temperature</p>
+</div></blockquote>
+<p><strong>units: object (optional, default: None)</strong></p>
+<blockquote>
+<div><p>attributes accessed: Joule, Kelvin and mol</p>
+</div></blockquote>
+<p><strong>constants: object (optional, default: None)</strong></p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>if None:</dt>
+<dd><p class="first last">T assumed to be in Kelvin, Ea in J/(K mol)</p>
+</dd>
+<dt>else:</dt>
+<dd><p class="first last">attributes accessed: molar_gas_constant
+Tip: pass quantities.constants</p>
+</dd>
+</dl>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.arrhenius.fit_arrhenius_equation">
+<code class="descclassname">chempy.arrhenius.</code><code class="descname">fit_arrhenius_equation</code><span class="sig-paren">(</span><em>k</em>, <em>T</em>, <em>kerr=None</em>, <em>linearized=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/arrhenius.html#fit_arrhenius_equation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.arrhenius.fit_arrhenius_equation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-chempy.chemistry">
+<span id="chempy-chemistry-module"></span><h2>chempy.chemistry module<a class="headerlink" href="#module-chempy.chemistry" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chempy.chemistry.Reaction">
+<em class="property">class </em><code class="descclassname">chempy.chemistry.</code><code class="descname">Reaction</code><span class="sig-paren">(</span><em>reac</em>, <em>prod</em>, <em>params=None</em>, <em>inact_reac=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/chemistry.html#Reaction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.chemistry.Reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>reac: dict</strong></p>
+<p><strong>prod: dict</strong></p>
+<p><strong>params: float or callable</strong></p>
+<p class="last"><strong>inact_reac: dict (optional)</strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="chempy.chemistry.Reaction.latex">
+<code class="descname">latex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/chemistry.html#Reaction.latex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.chemistry.Reaction.latex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="chempy.chemistry.Reaction.latex_arrow">
+<code class="descname">latex_arrow</code><em class="property"> = '\\rightarrow'</em><a class="headerlink" href="#chempy.chemistry.Reaction.latex_arrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.chemistry.Reaction.net_stoich">
+<code class="descname">net_stoich</code><span class="sig-paren">(</span><em>substances</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/chemistry.html#Reaction.net_stoich"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.chemistry.Reaction.net_stoich" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="chempy.chemistry.Reaction.str_arrow">
+<code class="descname">str_arrow</code><em class="property"> = '-&gt;'</em><a class="headerlink" href="#chempy.chemistry.Reaction.str_arrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="chempy.chemistry.ReactionSystem">
+<em class="property">class </em><code class="descclassname">chempy.chemistry.</code><code class="descname">ReactionSystem</code><span class="sig-paren">(</span><em>rxns</em>, <em>substances</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/chemistry.html#ReactionSystem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.chemistry.ReactionSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p class="rubric">Attributes</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="chempy.chemistry.ReactionSystem.as_per_substance_array">
+<code class="descname">as_per_substance_array</code><span class="sig-paren">(</span><em>cont</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/chemistry.html#ReactionSystem.as_per_substance_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.chemistry.ReactionSystem.as_per_substance_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turns e.g. a dict into an ordered array</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chempy.chemistry.ReactionSystem.as_substance_index">
+<code class="descname">as_substance_index</code><span class="sig-paren">(</span><em>sbstnc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/chemistry.html#ReactionSystem.as_substance_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.chemistry.ReactionSystem.as_substance_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the index of a Substance in the system</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="chempy.chemistry.ReactionSystem.nr">
+<code class="descname">nr</code><a class="headerlink" href="#chempy.chemistry.ReactionSystem.nr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="chempy.chemistry.ReactionSystem.ns">
+<code class="descname">ns</code><a class="headerlink" href="#chempy.chemistry.ReactionSystem.ns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="chempy.chemistry.ReactionSystem.stoichs">
+<code class="descname">stoichs</code><a class="headerlink" href="#chempy.chemistry.ReactionSystem.stoichs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="chempy.chemistry.Solute">
+<em class="property">class </em><code class="descclassname">chempy.chemistry.</code><code class="descname">Solute</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/chemistry.html#Solute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.chemistry.Solute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chempy.chemistry.Substance" title="chempy.chemistry.Substance"><code class="xref py py-class docutils literal"><span class="pre">chempy.chemistry.Substance</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="chempy.chemistry.Substance">
+<em class="property">class </em><code class="descclassname">chempy.chemistry.</code><code class="descname">Substance</code><span class="sig-paren">(</span><em>name=None</em>, <em>charge=None</em>, <em>mass=None</em>, <em>latex_name=None</em>, <em>formula=None</em>, <em>composition=None</em>, <em>excess_electrons=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/chemistry.html#Substance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.chemistry.Substance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name: str</strong></p>
+<p><strong>charge: int</strong></p>
+<p><strong>mass: float</strong></p>
+<p><strong>latex_name: str</strong></p>
+<p><strong>formula: carries dict attribute &#8220;atoms&#8221;</strong></p>
+<p><strong>composition: dict or None (default)</strong></p>
+<blockquote>
+<div><p>dict (int -&gt; int) e.g. {atomic number: count}</p>
+</div></blockquote>
+<p><strong>excess_electrons: bool (default: True)</strong></p>
+<blockquote class="last">
+<div><p>when this is set to True and composition is None:
+composition[0] will be number of excess electrons
+(-1 for H+ for example).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.chemistry.elements">
+<code class="descclassname">chempy.chemistry.</code><code class="descname">elements</code><span class="sig-paren">(</span><em>formula</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/chemistry.html#elements"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.chemistry.elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dict mapping {periodictable.core.Element: int}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>formula: periodictable.formulas.Formula</strong></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-chempy.core">
+<span id="chempy-core-module"></span><h2>chempy.core module<a class="headerlink" href="#module-chempy.core" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chempy.core.ActivityProduct">
+<em class="property">class </em><code class="descclassname">chempy.core.</code><code class="descname">ActivityProduct</code><span class="sig-paren">(</span><em>stoich</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/core.html#ActivityProduct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.core.ActivityProduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p class="rubric">Methods</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.core.ionic_strength">
+<code class="descclassname">chempy.core.</code><code class="descname">ionic_strength</code><span class="sig-paren">(</span><em>molalities</em>, <em>charges</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/core.html#ionic_strength"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.core.ionic_strength" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-chempy.debye_huckel">
+<span id="chempy-debye-huckel-module"></span><h2>chempy.debye_huckel module<a class="headerlink" href="#module-chempy.debye_huckel" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="chempy.debye_huckel.A">
+<code class="descclassname">chempy.debye_huckel.</code><code class="descname">A</code><span class="sig-paren">(</span><em>eps_r</em>, <em>T</em>, <em>rho</em>, <em>b0=1</em>, <em>constants=None</em>, <em>units=None</em>, <em>one=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/debye_huckel.html#A"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.debye_huckel.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Debye Huckel constant A</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eps_r: float</strong></p>
+<blockquote>
+<div><p>relative permittivity</p>
+</div></blockquote>
+<p><strong>T: float with unit</strong></p>
+<blockquote>
+<div><p>Temperature (default: assume Kelvin)</p>
+</div></blockquote>
+<p><strong>rho: float with unit</strong></p>
+<blockquote>
+<div><p>density (default: assume kg/m**3)</p>
+</div></blockquote>
+<p><strong>b0: float with unit</strong></p>
+<blockquote>
+<div><p>reference molality (default: assume mol/kg)</p>
+</div></blockquote>
+<p><strong>units: object (optional, default: None)</strong></p>
+<blockquote>
+<div><p>attributes accessed: meter, Kelvin and mol</p>
+</div></blockquote>
+<p><strong>constants: object (optional, default: None)</strong></p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>if None:</dt>
+<dd><p class="first last">T assumed to be in Kelvin and b0 = 1 mol/kg</p>
+</dd>
+<dt>else:</dt>
+<dd><p class="first last">see source code for what attributes are used.
+Tip: pass quantities.constants</p>
+</dd>
+</dl>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Remember to divide by ln(10) if you want to use the constant
+with log10 based expression.</p>
+<p class="rubric">References</p>
+<p>Atkins, De Paula, Physical Chemistry, 8th edition</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.debye_huckel.B">
+<code class="descclassname">chempy.debye_huckel.</code><code class="descname">B</code><span class="sig-paren">(</span><em>eps_r</em>, <em>T</em>, <em>rho</em>, <em>b0=1</em>, <em>constants=None</em>, <em>units=None</em>, <em>one=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/debye_huckel.html#B"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.debye_huckel.B" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extended Debye-Huckel parameter B</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eps_r: float</strong></p>
+<blockquote>
+<div><p>relative permittivity</p>
+</div></blockquote>
+<p><strong>T: float with unit</strong></p>
+<blockquote>
+<div><p>temperature</p>
+</div></blockquote>
+<p><strong>rho: float with unit</strong></p>
+<blockquote>
+<div><p>density</p>
+</div></blockquote>
+<p><strong>b0: float with unit</strong></p>
+<blockquote>
+<div><p>reference molality</p>
+</div></blockquote>
+<p><strong>units: object (optional, default: None)</strong></p>
+<blockquote>
+<div><p>attributes accessed: meter, Kelvin and mol</p>
+</div></blockquote>
+<p><strong>constants: object (optional, default: None)</strong></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>if None:</dt>
+<dd><p class="first last">T assumed to be in Kelvin, rho in kg/m**3 and b0 = 1 mol/kg</p>
+</dd>
+<dt>else:</dt>
+<dd><p class="first last">attributes accessed: molar_gas_constant, Faraday_constant
+Tip: pass quantities.constants</p>
+</dd>
+</dl>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Debye Huckel B constant (default in m**-1)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="chempy.debye_huckel.ExtendedDebyeHuckelActivityProduct">
+<em class="property">class </em><code class="descclassname">chempy.debye_huckel.</code><code class="descname">ExtendedDebyeHuckelActivityProduct</code><span class="sig-paren">(</span><em>stoich</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/debye_huckel.html#ExtendedDebyeHuckelActivityProduct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.debye_huckel.ExtendedDebyeHuckelActivityProduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chempy.core.ActivityProduct" title="chempy.core.ActivityProduct"><code class="xref py py-class docutils literal"><span class="pre">chempy.core.ActivityProduct</span></code></a></p>
+<p class="rubric">Methods</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="chempy.debye_huckel.LimitingDebyeHuckelActivityProduct">
+<em class="property">class </em><code class="descclassname">chempy.debye_huckel.</code><code class="descname">LimitingDebyeHuckelActivityProduct</code><span class="sig-paren">(</span><em>stoich</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/debye_huckel.html#LimitingDebyeHuckelActivityProduct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.debye_huckel.LimitingDebyeHuckelActivityProduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chempy.core.ActivityProduct" title="chempy.core.ActivityProduct"><code class="xref py py-class docutils literal"><span class="pre">chempy.core.ActivityProduct</span></code></a></p>
+<p class="rubric">Methods</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.debye_huckel.davies_activity_product">
+<code class="descclassname">chempy.debye_huckel.</code><code class="descname">davies_activity_product</code><span class="sig-paren">(</span><em>I</em>, <em>stoich</em>, <em>z</em>, <em>a</em>, <em>T</em>, <em>eps_r</em>, <em>rho</em>, <em>C=-0.3</em>, <em>exp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/debye_huckel.html#davies_activity_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.debye_huckel.davies_activity_product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="chempy.debye_huckel.davies_log_gamma">
+<code class="descclassname">chempy.debye_huckel.</code><code class="descname">davies_log_gamma</code><span class="sig-paren">(</span><em>I</em>, <em>z</em>, <em>A</em>, <em>C=-0.3</em>, <em>I0=1</em>, <em>one=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/debye_huckel.html#davies_log_gamma"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.debye_huckel.davies_log_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Davies formula</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.debye_huckel.extended_activity_product">
+<code class="descclassname">chempy.debye_huckel.</code><code class="descname">extended_activity_product</code><span class="sig-paren">(</span><em>I</em>, <em>stoich</em>, <em>z</em>, <em>a</em>, <em>T</em>, <em>eps_r</em>, <em>rho</em>, <em>C=0</em>, <em>exp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/debye_huckel.html#extended_activity_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.debye_huckel.extended_activity_product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="chempy.debye_huckel.extended_log_gamma">
+<code class="descclassname">chempy.debye_huckel.</code><code class="descname">extended_log_gamma</code><span class="sig-paren">(</span><em>I</em>, <em>z</em>, <em>a</em>, <em>A</em>, <em>B</em>, <em>C=0</em>, <em>I0=1</em>, <em>one=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/debye_huckel.html#extended_log_gamma"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.debye_huckel.extended_log_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Debye-Huckel extended formula</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.debye_huckel.limiting_activity_product">
+<code class="descclassname">chempy.debye_huckel.</code><code class="descname">limiting_activity_product</code><span class="sig-paren">(</span><em>I</em>, <em>stoich</em>, <em>z</em>, <em>T</em>, <em>eps_r</em>, <em>rho</em>, <em>exp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/debye_huckel.html#limiting_activity_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.debye_huckel.limiting_activity_product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="chempy.debye_huckel.limiting_log_gamma">
+<code class="descclassname">chempy.debye_huckel.</code><code class="descname">limiting_log_gamma</code><span class="sig-paren">(</span><em>I</em>, <em>z</em>, <em>A</em>, <em>I0=1</em>, <em>one=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/debye_huckel.html#limiting_log_gamma"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.debye_huckel.limiting_log_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Debye-Hyckel limiting formula</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-chempy.equilibria">
+<span id="chempy-equilibria-module"></span><h2>chempy.equilibria module<a class="headerlink" href="#module-chempy.equilibria" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chempy.equilibria.EqSystemBase">
+<em class="property">class </em><code class="descclassname">chempy.equilibria.</code><code class="descname">EqSystemBase</code><span class="sig-paren">(</span><em>rxns</em>, <em>substances</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chempy.chemistry.ReactionSystem" title="chempy.chemistry.ReactionSystem"><code class="xref py py-class docutils literal"><span class="pre">chempy.chemistry.ReactionSystem</span></code></a></p>
+<p class="rubric">Attributes</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.composition_balance_vectors">
+<code class="descname">composition_balance_vectors</code><span class="sig-paren">(</span><em>skip=()</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.composition_balance_vectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.composition_balance_vectors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.composition_conservation">
+<code class="descname">composition_conservation</code><span class="sig-paren">(</span><em>concs</em>, <em>init_concs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.composition_conservation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.composition_conservation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.eq_constants">
+<code class="descname">eq_constants</code><span class="sig-paren">(</span><em>scaling=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.eq_constants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.eq_constants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.equilibrium_quotients">
+<code class="descname">equilibrium_quotients</code><span class="sig-paren">(</span><em>concs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.equilibrium_quotients"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.equilibrium_quotients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.get_neqsys">
+<code class="descname">get_neqsys</code><span class="sig-paren">(</span><em>rref_equil=False</em>, <em>rref_preserv=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.get_neqsys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.get_neqsys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><em>x</em>, <em>init_concs</em>, <em>success</em>, <em>varied</em>, <em>values</em>, <em>ax=None</em>, <em>fail_vline=True</em>, <em>plot_kwargs=None</em>, <em>subplot_kwargs=None</em>, <em>tex=False</em>, <em>conc_unit_str='M'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>plots results from roots()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.plot_errors">
+<code class="descname">plot_errors</code><span class="sig-paren">(</span><em>concs</em>, <em>init_concs</em>, <em>varied</em>, <em>axes=None</em>, <em>compositions=True</em>, <em>Q=True</em>, <em>subplot_kwargs=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.plot_errors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.plot_errors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.root">
+<code class="descname">root</code><span class="sig-paren">(</span><em>init_concs</em>, <em>scaling=1</em>, <em>x0=None</em>, <em>neqsys=None</em>, <em>solver='scipy'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.roots">
+<code class="descname">roots</code><span class="sig-paren">(</span><em>init_concs</em>, <em>varied=None</em>, <em>values=None</em>, <em>carry=False</em>, <em>x0=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.roots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.roots" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.solve_and_plot">
+<code class="descname">solve_and_plot</code><span class="sig-paren">(</span><em>init_concs</em>, <em>varied</em>, <em>values</em>, <em>roots_kwargs=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.solve_and_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.solve_and_plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.stoichs_constants">
+<code class="descname">stoichs_constants</code><span class="sig-paren">(</span><em>rref=False</em>, <em>Matrix=None</em>, <em>ln=None</em>, <em>exp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.stoichs_constants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.stoichs_constants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemBase.upper_conc_bounds">
+<code class="descname">upper_conc_bounds</code><span class="sig-paren">(</span><em>init_concs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemBase.upper_conc_bounds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemBase.upper_conc_bounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="chempy.equilibria.EqSystemLin">
+<em class="property">class </em><code class="descclassname">chempy.equilibria.</code><code class="descname">EqSystemLin</code><span class="sig-paren">(</span><em>rxns</em>, <em>substances</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemLin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemLin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chempy.equilibria.EqSystemBase" title="chempy.equilibria.EqSystemBase"><code class="xref py py-class docutils literal"><span class="pre">chempy.equilibria.EqSystemBase</span></code></a></p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="58%" />
+<col width="42%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>post_processor</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemLin.f">
+<code class="descname">f</code><span class="sig-paren">(</span><em>y</em>, <em>init_concs</em>, <em>rref_equil=False</em>, <em>rref_preserv=False</em>, <em>ln=None</em>, <em>exp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemLin.f"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemLin.f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="chempy.equilibria.EqSystemLin.post_processor">
+<code class="descname">post_processor</code><em class="property"> = None</em><a class="headerlink" href="#chempy.equilibria.EqSystemLin.post_processor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="chempy.equilibria.EqSystemLog">
+<em class="property">class </em><code class="descclassname">chempy.equilibria.</code><code class="descname">EqSystemLog</code><span class="sig-paren">(</span><em>rxns</em>, <em>substances</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemLog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemLog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chempy.equilibria.EqSystemBase" title="chempy.equilibria.EqSystemBase"><code class="xref py py-class docutils literal"><span class="pre">chempy.equilibria.EqSystemBase</span></code></a></p>
+<p class="rubric">Attributes</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="chempy.equilibria.EqSystemLog.f">
+<code class="descname">f</code><span class="sig-paren">(</span><em>y</em>, <em>init_concs</em>, <em>rref_equil=False</em>, <em>rref_preserv=False</em>, <em>ln=None</em>, <em>exp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#EqSystemLog.f"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.EqSystemLog.f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="chempy.equilibria.EqSystemLog.post_processor">
+<code class="descname">post_processor</code><span class="sig-paren">(</span><em>x</em><span class="optional">[</span>, <em>out</em><span class="optional">]</span><span class="sig-paren">)</span><em class="property"> = &lt;ufunc 'exp'&gt;</em><a class="headerlink" href="#chempy.equilibria.EqSystemLog.post_processor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="chempy.equilibria.Equilibrium">
+<em class="property">class </em><code class="descclassname">chempy.equilibria.</code><code class="descname">Equilibrium</code><span class="sig-paren">(</span><em>reac</em>, <em>prod</em>, <em>params</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#Equilibrium"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.Equilibrium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chempy.chemistry.Reaction" title="chempy.chemistry.Reaction"><code class="xref py py-class docutils literal"><span class="pre">chempy.chemistry.Reaction</span></code></a></p>
+<p>Represents equilibrium reaction, subclass of Reatcion.
+Extra attributes:
+- solubility_product: bool (default: False)</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="chempy.equilibria.Equilibrium.K">
+<code class="descname">K</code><span class="sig-paren">(</span><em>T=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#Equilibrium.K"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.Equilibrium.K" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.Equilibrium.dimensionality">
+<code class="descname">dimensionality</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#Equilibrium.dimensionality"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.Equilibrium.dimensionality" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="chempy.equilibria.Equilibrium.latex_arrow">
+<code class="descname">latex_arrow</code><em class="property"> = '\\rightleftharpoons'</em><a class="headerlink" href="#chempy.equilibria.Equilibrium.latex_arrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chempy.equilibria.Equilibrium.solid_factor">
+<code class="descname">solid_factor</code><span class="sig-paren">(</span><em>substances</em>, <em>sc_concs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#Equilibrium.solid_factor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.Equilibrium.solid_factor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="chempy.equilibria.Equilibrium.str_arrow">
+<code class="descname">str_arrow</code><em class="property"> = '&lt;-&gt;'</em><a class="headerlink" href="#chempy.equilibria.Equilibrium.str_arrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.equilibria.composition_balance">
+<code class="descclassname">chempy.equilibria.</code><code class="descname">composition_balance</code><span class="sig-paren">(</span><em>substances</em>, <em>concs</em>, <em>composition_number</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#composition_balance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.composition_balance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="chempy.equilibria.equilibrium_quotient">
+<code class="descclassname">chempy.equilibria.</code><code class="descname">equilibrium_quotient</code><span class="sig-paren">(</span><em>concs</em>, <em>stoich</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#equilibrium_quotient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.equilibrium_quotient" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="chempy.equilibria.equilibrium_residual">
+<code class="descclassname">chempy.equilibria.</code><code class="descname">equilibrium_residual</code><span class="sig-paren">(</span><em>rc</em>, <em>c0</em>, <em>stoich</em>, <em>K</em>, <em>activity_product=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#equilibrium_residual"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.equilibrium_residual" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>rc: float</dt>
+<dd>Reaction coordinate</dd>
+<dt>c0: array_like of reals</dt>
+<dd>concentrations</dd>
+<dt>stoich: tuple</dt>
+<dd>per specie stoichiometry coefficient</dd>
+<dt>K: float</dt>
+<dd>equilibrium constant</dd>
+<dt>activity_product: callable</dt>
+<dd>callback for calculating the activity product taking
+concentration as single parameter.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.equilibria.get_rc_interval">
+<code class="descclassname">chempy.equilibria.</code><code class="descname">get_rc_interval</code><span class="sig-paren">(</span><em>stoich</em>, <em>c0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#get_rc_interval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.get_rc_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>get reaction coordinate interval</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.equilibria.mat_dot_vec">
+<code class="descclassname">chempy.equilibria.</code><code class="descname">mat_dot_vec</code><span class="sig-paren">(</span><em>iter_mat</em>, <em>iter_vec</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#mat_dot_vec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.mat_dot_vec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="chempy.equilibria.prodpow">
+<code class="descclassname">chempy.equilibria.</code><code class="descname">prodpow</code><span class="sig-paren">(</span><em>bases</em>, <em>exponents</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#prodpow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.prodpow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="chempy.equilibria.reducemap">
+<code class="descclassname">chempy.equilibria.</code><code class="descname">reducemap</code><span class="sig-paren">(</span><em>args</em>, <em>reduce_op</em>, <em>map_op</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#reducemap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.reducemap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="chempy.equilibria.solve_equilibrium">
+<code class="descclassname">chempy.equilibria.</code><code class="descname">solve_equilibrium</code><span class="sig-paren">(</span><em>c0</em>, <em>stoich</em>, <em>K</em>, <em>activity_product=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#solve_equilibrium"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.solve_equilibrium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve equilibrium concentrations by using scipy.optimize.brentq</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>c0: array_like</strong></p>
+<blockquote>
+<div><p>Initial guess of equilibrium concentrations</p>
+</div></blockquote>
+<p><strong>stoich: tuple</strong></p>
+<blockquote>
+<div><p>per specie stoichiometry coefficient (law of mass action)</p>
+</div></blockquote>
+<p><strong>K: float</strong></p>
+<blockquote>
+<div><p>equilibrium constant</p>
+</div></blockquote>
+<p><strong>activity_product: callable</strong></p>
+<blockquote>
+<div><p>see <code class="docutils literal"><span class="pre">equilibrium_residual</span></code></p>
+</div></blockquote>
+<p><strong>delta_frac: float</strong></p>
+<blockquote class="last">
+<div><p>to avoid division by zero the span of searched values for
+the reactions coordinate (rc) is shrunk by 2*delta_frac*span(rc)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="chempy.equilibria.vec_dot_vec">
+<code class="descclassname">chempy.equilibria.</code><code class="descname">vec_dot_vec</code><span class="sig-paren">(</span><em>vec1</em>, <em>vec2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/equilibria.html#vec_dot_vec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.equilibria.vec_dot_vec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-chempy.henry">
+<span id="chempy-henry-module"></span><h2>chempy.henry module<a class="headerlink" href="#module-chempy.henry" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chempy.henry.Henry">
+<em class="property">class </em><code class="descclassname">chempy.henry.</code><code class="descname">Henry</code><span class="sig-paren">(</span><em>kH0</em>, <em>derivative</em>, <em>T0=None</em>, <em>units=None</em>, <em>ref=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/henry.html#Henry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.henry.Henry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Henry&#8217;s gas constant. Note that the reference temperature
+is set by the attribute <code class="xref py py-attr docutils literal"><span class="pre">T0</span></code> which defaults to
+298.15 (Kelvin).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>kH0: float</strong></p>
+<blockquote>
+<div><p>Henry&#8217;s constant [M/atm]</p>
+</div></blockquote>
+<p><strong>derivative: float</strong></p>
+<blockquote>
+<div><p>dln(kH)/d(1/T) [K]
+Equivalent to Delta_soln H / R</p>
+</div></blockquote>
+<p><strong>ref: object</strong></p>
+<blockquote>
+<div><p>Reference for origin of parameters</p>
+</div></blockquote>
+<p><strong>units: object (optional)</strong></p>
+<blockquote class="last">
+<div><p>object with attributes: kelvin</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="chempy.henry.Henry.get_P_at_T_and_c">
+<code class="descname">get_P_at_T_and_c</code><span class="sig-paren">(</span><em>T</em>, <em>c</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/henry.html#Henry.get_P_at_T_and_c"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.henry.Henry.get_P_at_T_and_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the partial pressure for given temperature and concentration</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chempy.henry.Henry.get_c_at_T_and_P">
+<code class="descname">get_c_at_T_and_P</code><span class="sig-paren">(</span><em>T</em>, <em>P</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/henry.html#Henry.get_c_at_T_and_P"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.henry.Henry.get_c_at_T_and_P" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate what concentration is needed for achieving a given partial
+pressure at a specified temperature</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chempy.henry.Henry.get_kH_at_T">
+<code class="descname">get_kH_at_T</code><span class="sig-paren">(</span><em>T</em>, <em>exp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/henry.html#Henry.get_kH_at_T"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.henry.Henry.get_kH_at_T" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate kH at temperature T</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chempy.units">
+<span id="chempy-units-module"></span><h2>chempy.units module<a class="headerlink" href="#module-chempy.units" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="chempy.units.allclose">
+<code class="descclassname">chempy.units.</code><code class="descname">allclose</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>rtol=1e-08</em>, <em>atol=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/units.html#allclose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.units.allclose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-chempy.water_density_tanaka_2001">
+<span id="chempy-water-density-tanaka-2001-module"></span><h2>chempy.water_density_tanaka_2001 module<a class="headerlink" href="#module-chempy.water_density_tanaka_2001" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="chempy.water_density_tanaka_2001.water_density">
+<code class="descclassname">chempy.water_density_tanaka_2001.</code><code class="descname">water_density</code><span class="sig-paren">(</span><em>T=298.15</em>, <em>T0=None</em>, <em>units=None</em>, <em>a=None</em>, <em>just_return_a=False</em>, <em>warn=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/water_density_tanaka_2001.html#water_density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.water_density_tanaka_2001.water_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Density of water (kg/m3) as function of temperature (K)
+according to VSMOW model between 0 and 40 degree Celsius.
+Fitted using Thiesen&#8217;s equation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>T: float</strong></p>
+<blockquote>
+<div><p>Temperature (default: in Kelvin)</p>
+</div></blockquote>
+<p><strong>T0: float</strong></p>
+<blockquote>
+<div><p>Value of T for freezing point of water (default: 273.15)</p>
+</div></blockquote>
+<p><strong>units: object (optional)</strong></p>
+<blockquote>
+<div><p>object with attributes: Kelvin, meter, kilogram</p>
+</div></blockquote>
+<p><strong>a: array_like (optional)</strong></p>
+<blockquote>
+<div><p>5 parameters to the equation.</p>
+</div></blockquote>
+<p><strong>just_return_a: bool (optional, default: False)</strong></p>
+<blockquote>
+<div><p>Do not compute rho, just return the parameters <code class="docutils literal"><span class="pre">a</span></code>.</p>
+</div></blockquote>
+<p><strong>warn: bool (default: True)</strong></p>
+<blockquote>
+<div><p>Emit UserWarning when outside temperature range.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Density of water (float if T is float and units is None)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<dl class="docutils">
+<dt>TANAKA M., GIRARD G., DAVIS R., PEUTO A. and BIGNELL N.,</dt>
+<dd>&#8220;Recommanded table for the density of water between 0 °C and 40 °C
+based on recent experimental reports&#8221;,
+Metrologia, 2001, 38, 301-309. doi:10.1088/0026-1394/38/4/3</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-chempy.water_diffusivity_holz_2000">
+<span id="chempy-water-diffusivity-holz-2000-module"></span><h2>chempy.water_diffusivity_holz_2000 module<a class="headerlink" href="#module-chempy.water_diffusivity_holz_2000" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="chempy.water_diffusivity_holz_2000.water_self_diffusion_coefficient">
+<code class="descclassname">chempy.water_diffusivity_holz_2000.</code><code class="descname">water_self_diffusion_coefficient</code><span class="sig-paren">(</span><em>T=298.15</em>, <em>units=None</em>, <em>warn=True</em>, <em>err_mult=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/water_diffusivity_holz_2000.html#water_self_diffusion_coefficient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.water_diffusivity_holz_2000.water_self_diffusion_coefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Temperature-dependent self-diffusion coefficient of water.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>T: float</strong></p>
+<blockquote>
+<div><p>Temperature (default: in Kelvin)</p>
+</div></blockquote>
+<p><strong>units: object (optional)</strong></p>
+<blockquote>
+<div><p>object with attributes: Kelvin, meter, kilogram</p>
+</div></blockquote>
+<p><strong>warn: bool (default: True)</strong></p>
+<blockquote>
+<div><p>Emit UserWarning when outside temperature range.</p>
+</div></blockquote>
+<p><strong>err_mult: length 2 array_like (default: None)</strong></p>
+<blockquote class="last">
+<div><p>Perturb paramaters D0 and TS with err_mult[0]*dD0 and
+err_mult[1]*dTS respectively, where dD0 and dTS are the
+reported uncertainties in the fitted paramters. Useful
+for estimating error in diffusion coefficient.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<dl class="docutils">
+<dt>Temperature-dependent self-diffusion coefficients of water and six selected</dt>
+<dd>molecular liquids for calibration in accurate 1H NMR PFG measurements
+Manfred Holz, Stefan R. Heila, Antonio Saccob;
+Phys. Chem. Chem. Phys., 2000,2, 4740-4742
+DOI: 10.1039/B005319H</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-chempy.water_permittivity_bradley_pitzer_1979">
+<span id="chempy-water-permittivity-bradley-pitzer-1979-module"></span><h2>chempy.water_permittivity_bradley_pitzer_1979 module<a class="headerlink" href="#module-chempy.water_permittivity_bradley_pitzer_1979" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="chempy.water_permittivity_bradley_pitzer_1979.water_permittivity">
+<code class="descclassname">chempy.water_permittivity_bradley_pitzer_1979.</code><code class="descname">water_permittivity</code><span class="sig-paren">(</span><em>T=298.15</em>, <em>P=1</em>, <em>units=None</em>, <em>U=None</em>, <em>just_return_U=False</em>, <em>warn=True</em>, <em>exp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chempy/water_permittivity_bradley_pitzer_1979.html#water_permittivity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chempy.water_permittivity_bradley_pitzer_1979.water_permittivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative permittivity of water as function of temperature (K)
+and pressure (bar).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>T: float</strong></p>
+<blockquote>
+<div><p>Temperature (default: 298.15 Kelvin)</p>
+</div></blockquote>
+<p><strong>P: float</strong></p>
+<blockquote>
+<div><p>Pressure (default: 1 bar)</p>
+</div></blockquote>
+<p><strong>units: object (optional)</strong></p>
+<blockquote>
+<div><p>object with attributes: Kelvin, bar</p>
+</div></blockquote>
+<p><strong>U: array_like (optional)</strong></p>
+<blockquote>
+<div><p>9 parameters to the equation.</p>
+</div></blockquote>
+<p><strong>just_return_U: bool (optional, default: False)</strong></p>
+<blockquote>
+<div><p>Do not compute relative permittivity, just return the parameters <code class="docutils literal"><span class="pre">U</span></code>.</p>
+</div></blockquote>
+<p><strong>warn: bool (default: True)</strong></p>
+<blockquote>
+<div><p>Emit UserWarning when outside temperature/pressure range.</p>
+</div></blockquote>
+<p><strong>exp: callback (default: None)</strong></p>
+<blockquote>
+<div><p>Custom callback for evaluating the exponential function</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Relative permittivity of water (dielectric constant)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<dl class="docutils">
+<dt>Bradley, D.J.; Pitzer, K.S. <a href="#id1"><span class="problematic" id="id2">`</span></a>Thermodynamics of electrolytes. 12. Dielectric</dt>
+<dd>properties of water and Debye&#8211;Hueckel parameters to 350/sup
+0/C and 1 kbar`, J. Phys. Chem.; Journal Volume 83 (12)
+(1979), pp. 1599-1603,
+<a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/j100475a009">http://pubs.acs.org/doi/abs/10.1021/j100475a009</a>
+DOI: 10.1021/j100475a009</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">chempy package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-chempy.arrhenius">chempy.arrhenius module</a></li>
+<li><a class="reference internal" href="#module-chempy.chemistry">chempy.chemistry module</a></li>
+<li><a class="reference internal" href="#module-chempy.core">chempy.core module</a></li>
+<li><a class="reference internal" href="#module-chempy.debye_huckel">chempy.debye_huckel module</a></li>
+<li><a class="reference internal" href="#module-chempy.equilibria">chempy.equilibria module</a></li>
+<li><a class="reference internal" href="#module-chempy.henry">chempy.henry module</a></li>
+<li><a class="reference internal" href="#module-chempy.units">chempy.units module</a></li>
+<li><a class="reference internal" href="#module-chempy.water_density_tanaka_2001">chempy.water_density_tanaka_2001 module</a></li>
+<li><a class="reference internal" href="#module-chempy.water_diffusivity_holz_2000">chempy.water_diffusivity_holz_2000 module</a></li>
+<li><a class="reference internal" href="#module-chempy.water_permittivity_bradley_pitzer_1979">chempy.water_permittivity_bradley_pitzer_1979 module</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to chempy&#8217;s documentation!</a></li>
+      <li>Next: <a href="chempy.kinetics.html" title="next chapter">chempy.kinetics package</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/chempy.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bjoern I. Dahlgren <bjodah@gmail.com>.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/chempy.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

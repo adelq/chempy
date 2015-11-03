@@ -1,0 +1,35 @@
+chempy.util package
+===================
+
+.. automodule:: chempy.util
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    chempy.util.tests
+
+Submodules
+----------
+
+chempy.util.arithmeticdict module
+---------------------------------
+
+.. automodule:: chempy.util.arithmeticdict
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+chempy.util.plotting module
+---------------------------
+
+.. automodule:: chempy.util.plotting
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+

@@ -1,0 +1,20 @@
+chempy.util.tests package
+=========================
+
+.. automodule:: chempy.util.tests
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+chempy.util.tests.test_arithmeticdict module
+--------------------------------------------
+
+.. automodule:: chempy.util.tests.test_arithmeticdict
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+

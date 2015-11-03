@@ -1,0 +1,20 @@
+chempy.kinetics.tests package
+=============================
+
+.. automodule:: chempy.kinetics.tests
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+chempy.kinetics.tests.test_integrated module
+--------------------------------------------
+
+.. automodule:: chempy.kinetics.tests.test_integrated
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+

@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>chempy.util.tests.test_arithmeticdict &mdash; chempy 0.1.0.git documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1.0.git',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="top" title="chempy 0.1.0.git documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for chempy.util.tests.test_arithmeticdict</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">)</span>
+
+
+<span class="kn">from</span> <span class="nn">..arithmeticdict</span> <span class="kn">import</span> <span class="n">ArithmeticDict</span>
+
+
+<div class="viewcode-block" id="test_ArithmeticDict"><a class="viewcode-back" href="../../../../chempy.util.tests.html#chempy.util.tests.test_arithmeticdict.test_ArithmeticDict">[docs]</a><span class="k">def</span> <span class="nf">test_ArithmeticDict</span><span class="p">():</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)])</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)])</span>
+    <span class="n">d3</span> <span class="o">=</span> <span class="n">d1</span><span class="o">+</span><span class="n">d2</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">5.0</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">5.0</span>
+    <span class="n">d3</span> <span class="o">+=</span> <span class="p">{</span><span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">5.0</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">6.0</span>
+    <span class="n">d4</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mf">7.0</span><span class="p">}</span> <span class="o">+</span> <span class="n">d1</span>
+    <span class="k">assert</span> <span class="n">d4</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">8.0</span>
+    <span class="n">d5</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">+</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mf">9.0</span><span class="p">}</span>
+    <span class="k">assert</span> <span class="n">d5</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">10.0</span>
+
+    <span class="n">d6</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">-</span> <span class="n">d2</span>
+    <span class="k">assert</span> <span class="n">d6</span> <span class="o">==</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">}</span>
+    <span class="n">d6</span> <span class="o">-=</span> <span class="n">d3</span>
+    <span class="k">assert</span> <span class="n">d6</span> <span class="o">==</span> <span class="p">{</span><span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.0</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">11.0</span><span class="p">}</span>
+
+</div>
+<div class="viewcode-block" id="test_ArithmeticDict_add"><a class="viewcode-back" href="../../../../chempy.util.tests.html#chempy.util.tests.test_arithmeticdict.test_ArithmeticDict_add">[docs]</a><span class="k">def</span> <span class="nf">test_ArithmeticDict_add</span><span class="p">():</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="n">d1</span><span class="o">+</span><span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">+</span><span class="n">d1</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">d3</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">+</span> <span class="n">d2</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">7</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+</div>
+<div class="viewcode-block" id="test_ArithmeticDict_iadd"><a class="viewcode-back" href="../../../../chempy.util.tests.html#chempy.util.tests.test_arithmeticdict.test_ArithmeticDict_iadd">[docs]</a><span class="k">def</span> <span class="nf">test_ArithmeticDict_iadd</span><span class="p">():</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+    <span class="n">d1</span> <span class="o">+=</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+</div>
+<div class="viewcode-block" id="test_ArithmeticDict_sub"><a class="viewcode-back" href="../../../../chempy.util.tests.html#chempy.util.tests.test_arithmeticdict.test_ArithmeticDict_sub">[docs]</a><span class="k">def</span> <span class="nf">test_ArithmeticDict_sub</span><span class="p">():</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="n">d1</span><span class="o">-</span><span class="mi">7</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">6</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">5</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">-</span><span class="n">d1</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">d3</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">-</span> <span class="n">d2</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+
+</div>
+<div class="viewcode-block" id="test_ArithmeticDict_isub"><a class="viewcode-back" href="../../../../chempy.util.tests.html#chempy.util.tests.test_arithmeticdict.test_ArithmeticDict_isub">[docs]</a><span class="k">def</span> <span class="nf">test_ArithmeticDict_isub</span><span class="p">():</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+    <span class="n">d1</span> <span class="o">-=</span> <span class="mi">7</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">6</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">5</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+</div>
+<div class="viewcode-block" id="test_ArithmeticDict_mul"><a class="viewcode-back" href="../../../../chempy.util.tests.html#chempy.util.tests.test_arithmeticdict.test_ArithmeticDict_mul">[docs]</a><span class="k">def</span> <span class="nf">test_ArithmeticDict_mul</span><span class="p">():</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="n">d1</span><span class="o">*</span><span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">d1</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">d3</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">*</span> <span class="n">d2</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+</div>
+<div class="viewcode-block" id="test_ArithmeticDict_imul"><a class="viewcode-back" href="../../../../chempy.util.tests.html#chempy.util.tests.test_arithmeticdict.test_ArithmeticDict_imul">[docs]</a><span class="k">def</span> <span class="nf">test_ArithmeticDict_imul</span><span class="p">():</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+    <span class="n">d1</span> <span class="o">*=</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+</div>
+<div class="viewcode-block" id="test_ArithmeticDict_div"><a class="viewcode-back" href="../../../../chempy.util.tests.html#chempy.util.tests.test_arithmeticdict.test_ArithmeticDict_div">[docs]</a><span class="k">def</span> <span class="nf">test_ArithmeticDict_div</span><span class="p">():</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">)])</span>
+
+    <span class="n">d2</span> <span class="o">=</span> <span class="n">d1</span><span class="o">/</span><span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+
+    <span class="n">d2</span> <span class="o">=</span> <span class="n">d1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+
+    <span class="n">d2</span> <span class="o">=</span> <span class="mi">54</span><span class="o">/</span><span class="n">d1</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span>
+    <span class="k">assert</span> <span class="n">d2</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+    <span class="n">d3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">d2</span><span class="p">)</span><span class="o">/</span><span class="n">d1</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+    <span class="k">assert</span> <span class="n">d3</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+</div>
+<div class="viewcode-block" id="test_ArithmeticDict_idiv"><a class="viewcode-back" href="../../../../chempy.util.tests.html#chempy.util.tests.test_arithmeticdict.test_ArithmeticDict_idiv">[docs]</a><span class="k">def</span> <span class="nf">test_ArithmeticDict_idiv</span><span class="p">():</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">)])</span>
+    <span class="n">d1</span> <span class="o">/=</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">d1</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+</div>
+<div class="viewcode-block" id="test_ArithmeticDict_div_float"><a class="viewcode-back" href="../../../../chempy.util.tests.html#chempy.util.tests.test_arithmeticdict.test_ArithmeticDict_div_float">[docs]</a><span class="k">def</span> <span class="nf">test_ArithmeticDict_div_float</span><span class="p">():</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">ArithmeticDict</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">d</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">6.0</span>
+    <span class="n">d</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">9.0</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">d</span><span class="o">/</span><span class="mf">3.0</span>
+    <span class="k">assert</span> <span class="n">t</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">2.0</span>
+    <span class="k">assert</span> <span class="n">t</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">3.0</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bjoern I. Dahlgren <bjodah@gmail.com>.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

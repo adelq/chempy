@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>chempy.water_permittivity_bradley_pitzer_1979 &mdash; chempy 0.1.0.git documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1.0.git',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="chempy 0.1.0.git documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for chempy.water_permittivity_bradley_pitzer_1979</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">exp</span> <span class="k">as</span> <span class="n">_exp</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">log</span> <span class="k">as</span> <span class="n">ln</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="nb">any</span> <span class="k">as</span> <span class="n">_any</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span> <span class="k">as</span> <span class="n">_exp</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span> <span class="k">as</span> <span class="n">ln</span>
+    <span class="n">_any</span> <span class="o">=</span> <span class="nb">any</span>
+
+
+<div class="viewcode-block" id="water_permittivity"><a class="viewcode-back" href="../../chempy.html#chempy.water_permittivity_bradley_pitzer_1979.water_permittivity">[docs]</a><span class="k">def</span> <span class="nf">water_permittivity</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mf">298.15</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                       <span class="n">just_return_U</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">exp</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Relative permittivity of water as function of temperature (K)</span>
+<span class="sd">    and pressure (bar).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T: float</span>
+<span class="sd">        Temperature (default: 298.15 Kelvin)</span>
+<span class="sd">    P: float</span>
+<span class="sd">        Pressure (default: 1 bar)</span>
+<span class="sd">    units: object (optional)</span>
+<span class="sd">        object with attributes: Kelvin, bar</span>
+<span class="sd">    U: array_like (optional)</span>
+<span class="sd">        9 parameters to the equation.</span>
+<span class="sd">    just_return_U: bool (optional, default: False)</span>
+<span class="sd">        Do not compute relative permittivity, just return the parameters ``U``.</span>
+<span class="sd">    warn: bool (default: True)</span>
+<span class="sd">        Emit UserWarning when outside temperature/pressure range.</span>
+<span class="sd">    exp: callback (default: None)</span>
+<span class="sd">        Custom callback for evaluating the exponential function</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Relative permittivity of water (dielectric constant)</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Bradley, D.J.; Pitzer, K.S. `Thermodynamics of electrolytes. 12. Dielectric</span>
+<span class="sd">        properties of water and Debye--Hueckel parameters to 350/sup</span>
+<span class="sd">        0/C and 1 kbar`, J. Phys. Chem.; Journal Volume 83 (12)</span>
+<span class="sd">        (1979), pp. 1599-1603,</span>
+<span class="sd">        http://pubs.acs.org/doi/abs/10.1021/j100475a009</span>
+<span class="sd">        DOI: 10.1021/j100475a009</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">units</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">bar</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">Kelvin</span>
+        <span class="n">bar</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">bar</span>
+    <span class="k">if</span> <span class="n">U</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="p">(</span><span class="mf">3.4279e2</span><span class="p">,</span>
+             <span class="o">-</span><span class="mf">5.0866e-3</span> <span class="o">/</span> <span class="n">K</span><span class="p">,</span>
+             <span class="mf">9.4690e-7</span> <span class="o">/</span> <span class="n">K</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+             <span class="o">-</span><span class="mf">2.0525</span><span class="p">,</span>
+             <span class="mf">3.1159e3</span><span class="o">*</span><span class="n">K</span><span class="p">,</span>
+             <span class="o">-</span><span class="mf">1.8289e2</span><span class="o">*</span><span class="n">K</span><span class="p">,</span>
+             <span class="o">-</span><span class="mf">8.0325e3</span><span class="o">*</span><span class="n">bar</span><span class="p">,</span>
+             <span class="mf">4.2142e6</span><span class="o">*</span><span class="n">K</span><span class="o">*</span><span class="n">bar</span><span class="p">,</span>
+             <span class="mf">2.1417</span><span class="o">/</span><span class="n">K</span><span class="o">*</span><span class="n">bar</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">just_return_U</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">U</span>
+    <span class="n">T0</span> <span class="o">=</span> <span class="mf">273.15</span><span class="o">*</span><span class="n">K</span>
+    <span class="k">if</span> <span class="n">warn</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">_any</span><span class="p">(</span><span class="n">T</span> <span class="o">&lt;</span> <span class="n">T0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">_any</span><span class="p">(</span><span class="n">T</span> <span class="o">&gt;</span> <span class="n">T0</span> <span class="o">+</span> <span class="mi">350</span><span class="o">*</span><span class="n">K</span><span class="p">):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">&quot;Outside temperature range (0-350 degC)&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">_any</span><span class="p">(</span><span class="n">T</span> <span class="o">&gt;</span> <span class="n">T0</span> <span class="o">+</span> <span class="mi">70</span><span class="o">*</span><span class="n">K</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">_any</span><span class="p">(</span><span class="n">P</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="o">*</span><span class="n">bar</span><span class="p">):</span>
+                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">&quot;Outside pressure range (2000 bar)&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">_any</span><span class="p">(</span><span class="n">P</span> <span class="o">&gt;</span> <span class="mi">5000</span><span class="o">*</span><span class="n">bar</span><span class="p">):</span>
+                        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">&quot;Outside pressure range (5000 bar)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">exp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">exp</span> <span class="o">=</span> <span class="n">_exp</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">U</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">/</span><span class="n">T</span> <span class="o">+</span> <span class="n">U</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">*</span><span class="n">T</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">U</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">eps1000</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">T</span> <span class="o">+</span> <span class="n">U</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">T</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">eps1000</span> <span class="o">+</span> <span class="n">C</span><span class="o">*</span><span class="n">ln</span><span class="p">((</span><span class="n">B</span><span class="o">+</span><span class="n">P</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">B</span> <span class="o">+</span> <span class="mf">1000.0</span><span class="o">*</span><span class="n">bar</span><span class="p">))</span>
+
+<span class="c"># generated at doi2bib.org:</span></div>
+<span class="n">bibtex</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">@article{Bradley1979,</span>
+<span class="s">  doi = {10.1021/j100475a009},</span>
+<span class="s">  url = {http://dx.doi.org/10.1021/j100475a009},</span>
+<span class="s">  year  = {1979},</span>
+<span class="s">  month = {jun},</span>
+<span class="s">  publisher = {American Chemical Society ({ACS})},</span>
+<span class="s">  volume = {83},</span>
+<span class="s">  number = {12},</span>
+<span class="s">  pages = {1599--1603},</span>
+<span class="s">  author = {Daniel J. Bradley and Kenneth S. Pitzer},</span>
+<span class="s">  title = {Thermodynamics of electrolytes. 12. Dielectric properties of water</span>
+<span class="s">           and Debye-Hueckel parameters to 350.degree.C and 1 kbar},</span>
+<span class="s">  journal = {J. Phys. Chem.}</span>
+<span class="s">}</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Bjoern I. Dahlgren <bjodah@gmail.com>.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

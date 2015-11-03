@@ -1,0 +1,100 @@
+chempy package
+==============
+
+.. automodule:: chempy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    chempy.kinetics
+    chempy.util
+
+Submodules
+----------
+
+chempy.arrhenius module
+-----------------------
+
+.. automodule:: chempy.arrhenius
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+chempy.chemistry module
+-----------------------
+
+.. automodule:: chempy.chemistry
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+chempy.core module
+------------------
+
+.. automodule:: chempy.core
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+chempy.debye_huckel module
+--------------------------
+
+.. automodule:: chempy.debye_huckel
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+chempy.equilibria module
+------------------------
+
+.. automodule:: chempy.equilibria
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+chempy.henry module
+-------------------
+
+.. automodule:: chempy.henry
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+chempy.units module
+-------------------
+
+.. automodule:: chempy.units
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+chempy.water_density_tanaka_2001 module
+---------------------------------------
+
+.. automodule:: chempy.water_density_tanaka_2001
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+chempy.water_diffusivity_holz_2000 module
+-----------------------------------------
+
+.. automodule:: chempy.water_diffusivity_holz_2000
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+chempy.water_permittivity_bradley_pitzer_1979 module
+----------------------------------------------------
+
+.. automodule:: chempy.water_permittivity_bradley_pitzer_1979
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
